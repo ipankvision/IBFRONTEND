@@ -10,13 +10,13 @@ import { MenuSampingComponent } from './menu-samping/menu-samping.component';
 import { SelamatDatangComponent } from './selamat-datang/selamat-datang.component';
 import { MenuAtasComponent } from './menu-atas/menu-atas.component';
 import { RekeningModule } from './rekening/rekening.module';
-import { TransferComponent } from './transfer/transfer.component';
+import { TransferModule } from './transfer/transfer.module';
 import { ProfilComponent } from './profil/profil.component';
 
 
 const route: Routes = [
   { path: 'rekening', redirectTo: "/rekening", pathMatch: "full" },
-  { path: 'transfer', component: TransferComponent },
+  { path: 'transfer', redirectTo: "/transfer", pathMatch: "full" },
   { path: 'profil', component: ProfilComponent},
   { path: '**', component: SelamatDatangComponent }
 ];
@@ -27,7 +27,6 @@ const route: Routes = [
     MenuSampingComponent,
     SelamatDatangComponent,
     MenuAtasComponent,
-    TransferComponent,
     ProfilComponent
   ],
   imports: [
@@ -36,7 +35,8 @@ const route: Routes = [
     HttpModule,
     AccordionModule.forRoot(),
     RouterModule.forRoot(route),
-    RekeningModule
+    RekeningModule,
+    TransferModule
   ],
   providers: [],
   bootstrap: [AppComponent]
